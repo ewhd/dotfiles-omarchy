@@ -13,3 +13,4 @@ source ~/.local/share/omarchy/default/bash/rc
 . "$HOME/.local/share/../bin/env"
 
 alias emcli="emacsclient -nw"
+alias chz="chezmoi"
