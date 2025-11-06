@@ -14,3 +14,4 @@ source ~/.local/share/omarchy/default/bash/rc
 
 alias emcli="emacsclient -nw"
 alias chz="chezmoi"
+alias emacs="~/.local/bin/emacs-client-wrapper"

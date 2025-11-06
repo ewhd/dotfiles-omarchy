@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Start server if it is not running
+# Use emacsclient if it connect to the server
+# Otherwise, fallback to Emacs
+
+if ! pgrep -x process_name >/dev/null; then
+    emacs --daemon
+fi
+
+if emacsclient -e "(+ 0 0)" &>/dev/null; then
+    emacsclient -c "$@"
+else
+    emacs "$@"
+fi
+
+
