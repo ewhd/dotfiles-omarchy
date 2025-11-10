@@ -1,0 +1,59 @@
+force_keyboard_focus = true                                                 # forces keyboard forcus to stay in Walker
+selection_wrap = true                                                       # wrap list if at bottom or top
+theme = "omarchy-default"                                                   # theme to use
+additional_theme_location = "~/.local/share/omarchy/default/walker/themes/"
+
+[placeholders]
+"default" = { input = " Search...", list = "No Results" } # placeholders for input and empty list, key is the providers name, so f.e. "desktopapplications" or "menus:other"
+
+[keybinds]
+quick_activate = []
+close = ["Escape", "ctrl g"]
+next = ["Down", "ctrl n"]
+previous = ["Up", "ctrl p"]
+
+[providers]
+default = [
+  "desktopapplications",
+  "menus",
+  "websearch",
+] # providers to be queried by default
+
+[[providers.prefixes]]
+prefix = "/"
+provider = "providerlist"
+
+[[providers.prefixes]]
+prefix = "."
+provider = "files"
+
+[[providers.prefixes]]
+prefix = ":"
+provider = "symbols"
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
+
+[[providers.prefixes]]
+prefix = "@"
+provider = "websearch"
+
+[[providers.prefixes]]
+prefix = "$"
+provider = "clipboard"
+
+
+# Pulled and modified from the example config.toml
+# Changing
+[providers.actions]
+desktopapplications = [
+  # { action = "start", default = true, bind = "Return" },
+  # { action = "start:keep", label = "open+next", bind = "shift Return", after = "KeepOpen" },
+  # { action = "new_instance", label = "new instance", bind = "ctrl Return" },
+  # { action = "new_instance:keep", label = "new+next", bind = "ctrl alt Return", after = "KeepOpen" },
+  { action = "pin", bind = "ctrl b", after = "AsyncReload" }, # Changed from "ctrl p" to "ctrl b"
+  { action = "unpin", bind = "ctrl u", after = "AsyncReload" }, # Changed from "ctrl p" to "ctrl u"
+  { action = "pinup", bind = "ctrl Up", after = "AsyncReload" }, # Changed from "ctrl n" to "ctrl ["
+  { action = "pindown", bind = "ctrl Down", after = "AsyncReload" } # Changed from "ctrl m" to "ctrl ]"
+]
