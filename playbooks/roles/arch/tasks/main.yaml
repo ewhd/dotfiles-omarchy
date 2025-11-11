@@ -1,7 +1,0 @@
----
-- name: Install arch utilities
-  package:
-    name:
-      - yay
-
-    state: present

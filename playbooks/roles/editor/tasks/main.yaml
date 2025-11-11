@@ -1,9 +1,14 @@
 ---
-- name: Install editor utilities
-  package:
+- name: Ensure editors are installed
+  ansible.builtin.package:
     name:
       - emacs-wayland
       - pandoc-bin
-
+      # - neovim
     state: present
 
+# - name: Set default editor in /etc/environment
+#   lineinfile:
+#     path: /etc/environment
+#     regexp: '^EDITOR='
+#     line: "EDITOR={{ editor_default }}"

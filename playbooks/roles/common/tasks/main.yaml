@@ -1,20 +1,20 @@
 ---
 - name: Install common utilities
-  package:
+  ansible.builtin.package:
     name:
       - nmap
-      - ranger
-      - htop
-      - btop
-      - plocate
-      - xsel
-      - wget
-      - curl
-      - tmux
-      - ffmpeg
-      - imagemagick
-      - nano
-      - tldr
-      - traceroute
+      # - ranger
+      # - htop
+      # - btop
+      # - plocate
+      # - xsel
+      # - wget
+      # - curl
+      # - tmux
+      # - ffmpeg
+      # - imagemagick
+      # - nano
+      # - tldr
+      # - traceroute
 
     state: present

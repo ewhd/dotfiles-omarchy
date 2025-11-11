@@ -20,7 +20,8 @@ set -e
     fi
 
     echo "Running Ansible playbook..."
-    ansible-playbook -vvv --ask-become-pass "{{ .chezmoi.sourceDir }}/playbooks/setup.yaml" --connection=local
+    export ANSIBLE_CONFIG=$HOME/.local/share/chezmoi/playbooks/ansible.cfg
+    ansible-playbook --ask-become-pass "{{ .chezmoi.sourceDir }}/playbooks/setup.yaml"
 {{ else }}
     echo "Skipping Ansible setup (not a Linux system)."
 {{ end }}

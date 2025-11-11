@@ -1,6 +1,6 @@
 ---
 - name: Install gui utilities
-  package:
+  ansible.builtin.package:
     name:
       - remmina
       # - nitrogen
