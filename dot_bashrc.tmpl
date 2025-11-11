@@ -21,4 +21,7 @@ alias emacs="$HOME/.local/bin/emacs-client-wrapper"
 alias batlvl="cat /sys/class/power_supply/BAT0/capacity; cat /sys/class/power_supply/BAT1/capacity"
 
 export EDITOR="$HOME/.local/bin/emacs-client-wrapper"
+
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 {{ end -}}
