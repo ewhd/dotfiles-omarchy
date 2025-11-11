@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILE="/sys/module/hid_apple/parameters/fnmode"
+
+[ -w "$FILE" ] || exit 1
+
+cur=$(cat "$FILE")
+
+new=$((cur == 2 ? 3 : 2)) # 2 = F-Keys, 3 = Media
+
+echo "$new" > "$FILE"
