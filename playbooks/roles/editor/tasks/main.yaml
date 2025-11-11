@@ -3,7 +3,7 @@
   ansible.builtin.package:
     name:
       - emacs-wayland
-      - pandoc-bin
+      - pandoc-cli
       # - neovim
     state: present
 

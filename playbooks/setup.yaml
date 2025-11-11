@@ -11,10 +11,12 @@
 
   tasks:
     - name: Include Archlinux role
-      include_role:
+      ansible.builtin.include_role:
         name: archlinux
       when: ansible_distribution == "Archlinux"
     - name: Include hyprland role
-      include_role:
+      ansible.builtin.include_role:
         name: hyprland
-      when: desktop_session == "hyprland-uwsm"
+      when: (ansible_facts.env.DESKTOP_SESSION | default("") | lower) == "hyprland-uwsm"
+
+

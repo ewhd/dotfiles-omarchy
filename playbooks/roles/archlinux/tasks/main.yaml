@@ -1,23 +1,36 @@
 ---
 - name: Ensure base-devel is installed
   ansible.builtin.package:
+    # - 
     name: base-devel
     state: present
 
 - name: Install Arch-specific tools
   ansible.builtin.package:
     name:
-      # - pacutils
-      # - ripgrep
-      # - fzf
+    - yay
+    # - pacutils
+    # - ripgrep
+    # - fzf
     state: present
 
-- name: Install yay AUR helper if missing
+# - name: Install yay AUR helper if missing
+#   become_user: "{{ lookup('env', 'USER') }}"
+#   ansible.builtin.shell: |
+#     if ! command -v yay >/dev/null 2>&1; then
+#       git clone https://aur.archlinux.org/yay.git /tmp/yay
+#       cd /tmp/yay && makepkg -si --noconfirm
+#     fi
+#   args:
+#     creates: /usr/bin/yay
+
+- name: Install AUR packages
+  become: true
   become_user: "{{ lookup('env', 'USER') }}"
-  shell: |
-    if ! command -v yay >/dev/null 2>&1; then
-      git clone https://aur.archlinux.org/yay.git /tmp/yay
-      cd /tmp/yay && makepkg -si --noconfirm
-    fi
-  args:
-    creates: /usr/bin/yay
+  aur:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - nitrogen
+    - google-chrome
+  when: ansible_distribution == "Archlinux"
