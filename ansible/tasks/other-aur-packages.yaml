@@ -1,5 +1,5 @@
 ---
-- name: Install other packages form AUR
+- name: Install other packages from AUR
   become: true
   become_user: aur_builder
   become_method: sudo
