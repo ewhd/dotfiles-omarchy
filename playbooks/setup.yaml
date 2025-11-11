@@ -1,0 +1,11 @@
+---
+- name: System setup
+  hosts: localhost
+  become: true
+  gather_facts: true
+
+  roles:
+    - role: common
+    # - role: "{{ ansible_distribution | lower }}"
+    - role: editor
+    - role: gui

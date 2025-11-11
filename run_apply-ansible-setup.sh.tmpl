@@ -1,0 +1,26 @@
+#!/bin/sh
+# run_apply-ansible-setup.sh.tmpl
+set -e
+
+{{ if eq .chezmoi.os "linux" }}
+    echo "Detected Linux system — preparing to apply Ansible setup..."
+
+    if ! command -v ansible >/dev/null 2>&1; then
+        echo "Installing Ansible..."
+        if command -v pacman >/dev/null 2>&1; then
+            sudo pacman -Sy --noconfirm ansible
+        elif command -v apt >/dev/null 2>&1; then
+            sudo apt update && sudo apt install -y ansible
+        elif command -v dnf >/dev/null 2>&1; then
+            sudo dnf install -y ansible
+        else
+            echo "Unsupported package manager: cannot install Ansible automatically." >&2
+            exit 1
+        fi
+    fi
+
+    echo "Running Ansible playbook..."
+    ansible-playbook -vvv --ask-become-pass "{{ .chezmoi.sourceDir }}/playbooks/setup.yaml" --connection=local
+{{ else }}
+    echo "Skipping Ansible setup (not a Linux system)."
+{{ end }}

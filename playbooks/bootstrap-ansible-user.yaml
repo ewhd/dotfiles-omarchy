@@ -1,0 +1,31 @@
+# playbooks/bootstrap-ansible-user.yaml
+---
+- name: Bootstrap Ansible user
+  hosts: localhost
+  become: true
+  gather_facts: true
+
+  vars:
+    ansible_user: ansible
+    ansible_shell: /bin/bash
+    package_managers:
+      - /usr/bin/pacman
+      - /usr/bin/apt
+      - /usr/bin/dnf
+      - /usr/bin/ansible-playbook
+
+  tasks:
+    - name: Ensure ansible user exists
+      user:
+        name: "{{ ansible_user }}"
+        shell: "{{ ansible_shell }}"
+        state: present
+        create_home: yes
+
+    - name: Ensure sudoers entry for ansible user
+      copy:
+        dest: "/etc/sudoers.d/{{ ansible_user }}"
+        content: "{{ ansible_user }} ALL=(ALL) NOPASSWD: {{ package_managers | join(', ') }}"
+        owner: root
+        group: root
+        mode: '0440'

@@ -1,0 +1,9 @@
+---
+- name: Install editor utilities
+  package:
+    name:
+      - emacs-wayland
+      - pandoc-bin
+
+    state: present
+

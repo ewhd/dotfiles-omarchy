@@ -1,0 +1,10 @@
+---
+- name: Install gui utilities
+  package:
+    name:
+      - remmina
+      # - nitrogen
+      - thunar
+      - portmaster-bin
+
+    state: present

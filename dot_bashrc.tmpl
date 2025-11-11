@@ -1,3 +1,6 @@
+{{ if eq .chezmoi.os "linux" -}}
+# Linux .bashrc contents
+
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 
@@ -18,3 +21,4 @@ alias emacs="$HOME/.local/bin/emacs-client-wrapper"
 alias batlvl="cat /sys/class/power_supply/BAT0/capacity; cat /sys/class/power_supply/BAT1/capacity"
 
 export EDITOR="$HOME/.local/bin/emacs-client-wrapper"
+{{ end -}}
