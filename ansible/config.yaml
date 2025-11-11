@@ -1,0 +1,36 @@
+---
+update: true
+swapfile_path: /swapfile
+swapfile_size: 8G
+
+# base_packages:
+  # -
+
+common:
+  - nmap
+  - ranger
+  - htop
+  - btop
+  - plocate
+  - xsel
+  - wget
+  - curl
+  - tmux
+  - ffmpeg
+  - imagemagick
+  - nano
+  - tldr
+  - traceroute
+
+other_packages:
+  - google-chrome
+  - remmina
+  - thunar
+  - portmaster-bin
+  - pandoc-cli
+
+wayland:
+  - emacs-wayland
+  - hypermon
+  - waypaper
+

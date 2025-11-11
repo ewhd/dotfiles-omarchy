@@ -1,0 +1,32 @@
+---
+- name: System setup
+  hosts: localhost
+  # become: true
+  # gather_facts: true
+
+  vars_files:
+    - config.yaml
+
+  tasks:
+    - import_tasks: tasks/common.yaml
+    - import_tasks: tasks/other-packages.yaml
+    - import_tasks: tasks/wayland.yaml
+    # - import_tasks: tasks/gui.yaml
+    # - import_tasks: tasks/hyprland.yaml
+    # - import_tasks: tasks/amdgpu.yml
+    # - import_tasks: tasks/fonts.yml
+    # - import_tasks: tasks/gnome.yml
+    # - import_tasks: tasks/other-packages.yml
+    # - import_tasks: tasks/other-services.yml
+    # - import_tasks: tasks/dev-packages.yml
+    # - import_tasks: tasks/upgrade.yml
+    # - name: Include Archlinux role
+    #   ansible.builtin.include_role:
+    #     name: archlinux
+    #   when: ansible_distribution == "Archlinux"
+    # - name: Include hyprland role
+    #   ansible.builtin.include_role:
+    #     name: hyprland
+    #   when: (ansible_facts.env.DESKTOP_SESSION | default("") | lower) == "hyprland-uwsm"
+
+
