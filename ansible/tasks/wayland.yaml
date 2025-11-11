@@ -1,33 +1,15 @@
 ---
-    # - name: Ensure Python 'build' module is installed for user
-    #   ansible.builtin.pip:
-    #     name: build
-    #     executable: "~/.local/share/mise/installs/python/3.14.0/bin/pip"
-    #     state: present
-    #     user: yes
-
-    # - user:
-    # name: aur_builder
-
-- name: Create user aur_builder
-  ansible.builtin.user:
-    name: aur_builder
+- name: Install 
   become: true
-
-- name: Set aur_builder passworldess sudo
-  ansible.builtin.lineinfile:
-    path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+  ansible.builtin.package:
+    name: "{{ wayland-arch }}"
     state: present
-    line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
-    validate: /usr/sbin/visudo -cf %s
-    create: true
-  become: true
 
 - name: Install packages for wayland
   become: true
   become_user: aur_builder
   become_method: sudo
   kewlfft.aur.aur:
-    name: "{{ wayland }}"
+    name: "{{ wayland-aur }}"
     use: yay
     state: present

@@ -23,14 +23,19 @@ common:
   - traceroute
 
 other_packages:
-  - google-chrome
   - remmina
   - thunar
-  - portmaster-bin
   - pandoc-cli
-
-wayland:
   - emacs-wayland
-  - hypermon
+  
+other_aur_packages:
+  - google-chrome
+  - portmaster-bin
+  - hyprmon-bin
   - waypaper
+
+# wayland:
+
+
+
 

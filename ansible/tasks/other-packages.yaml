@@ -1,7 +1,6 @@
 ---
 - name: Install other packages
   become: true
-  kewlfft.aur.aur:
+  ansible.builtin.package:
     name: "{{ other_packages }}"
-    use: yay
     state: present
