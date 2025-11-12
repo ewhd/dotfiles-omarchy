@@ -24,6 +24,10 @@ source = ~/.config/hypr/autostart.conf
 # windowrule = workspace 5, class:qemu
 source = ~/.config/hypr/scratchpad.conf
 
+# machine-specific configuration
+{{- if eq .chezmoi.hostname "t480-omarchy" }}
+{{- end }}
 
-monitor=eDP-1,1920x1080@60.02,3392x256,1.50
-monitor=DP-3,2560x1440@59.95,768x-32,1.00
+{{- if eq .chezmoi.hostname "macbook-omarchy" }}
+monitor=eDP-1,1440x900@59.84,0x0,1.25
+{{- end }}
