@@ -12,4 +12,5 @@
     - import_tasks: tasks/other-packages.yaml
     - import_tasks: tasks/setup-aur.yaml
     - import_tasks: tasks/other-aur-packages.yaml
+    - import_tasks: tasks/pip.yaml
     # - import_tasks: tasks/wayland.yaml

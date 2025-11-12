@@ -1,0 +1,7 @@
+---
+- name: Install Python Utils
+  ansible.builtin.pip:
+    name:
+      - git-remote-dropbox
+      - ansible-lint
+    state: present
