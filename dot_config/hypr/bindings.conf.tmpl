@@ -82,3 +82,7 @@ bind = SUPER ALT, F, fullscreen
 
 
 # bindd = XF86Fn, ESCAP, Fn Lock, exec, ~/.local/bin/toggle-fn-lock-mac
+
+{{ if eq .chezmoi.hostname "macbook-omarchy" }}
+bind = super, backspace, sendshortcut, , delete,
+{{ end }}
