@@ -29,6 +29,7 @@ other_packages:
   - emacs-wayland
   - bitwarden
   - dropbox
+  - tailscale
   
 other_aur_packages:
   - google-chrome
