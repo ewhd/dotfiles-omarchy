@@ -29,7 +29,7 @@ other_packages:
   - emacs-wayland
   - bitwarden
   - dropbox
-  - tailscale
+  # - tailscale # install via omarchy helper script in ~/.local/share/omarchy/bin/omarchy-install-tailscale, which will handle the tui setup and .desktop files
   
 other_aur_packages:
   - google-chrome

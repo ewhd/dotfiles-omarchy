@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Tailscale
-Comment=Tailscale
-Exec=$TERMINAL --class=TUI.float -e sudo tsui
-Terminal=false
-Type=Application
-Icon=/home/ewhd/.local/share/applications/icons/Tailscale.png
-StartupNotify=true
