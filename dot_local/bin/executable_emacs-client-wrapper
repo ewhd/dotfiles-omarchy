@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
-# Start server if it is not running
-# Use emacsclient if it connect to the server
-# Otherwise, fallback to Emacs
 
-if ! pgrep -x process_name >/dev/null; then
+# Start daemon if not running
+if ! emacsclient -e "(+ 0 0)" &>/dev/null; then
     emacs --daemon
+    # Wait until the server is ready
+    until emacsclient -e "(+ 0 0)" &>/dev/null; do
+        sleep 0.05
+    done
 fi
 
-if emacsclient -e "(+ 0 0)" &>/dev/null; then
-    emacsclient -c "$@"
+# Open client frame, fallback if something is truly wrong
+# If running in terminal, open emacsclient in the terminal
+# is server is running, and emacs in the terminal otherwise.
+# If not running in a terminal, attempt to start emacsclient
+# and fall back to emacs if that fails.
+if [[ -t 1 ]]; then  # if run from terminal
+    if emacsclient -e "(+ 0 0)" &>/dev/null; then
+	emacsclient -nw "$@"
+    else
+	emacs -nw "$@"
+    fi
 else
-    emacs "$@"
+    emacsclient -c -a "emacs" "$@"
 fi
-
-
