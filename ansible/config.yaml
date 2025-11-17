@@ -21,6 +21,8 @@ common:
   - nano
   - tldr
   - traceroute
+  - mc # Midnight Commander
+  - sbcl # common lisp interpreter
 
 other_packages:
   - remmina
