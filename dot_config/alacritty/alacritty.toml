@@ -1,21 +1,37 @@
-general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
-
 [env]
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "CaskaydiaMono Nerd Font" }
-bold = { family = "CaskaydiaMono Nerd Font" }
-italic = { family = "CaskaydiaMono Nerd Font" }
-size = 9
+size = 11
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[general]
+import = [
+    "/home/ewhd/.config/omarchy/current/theme/alacritty.toml",
+    "/home/ewhd/.config/alacritty/themes/themes/gruvbox_dark.toml",
+]
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Insert"
+mods = "Control"
 
 [window]
-padding.x = 14
-padding.y = 14
 decorations = "None"
 
-[keyboard]
-bindings = [
-{ key = "Insert", mods = "Shift", action = "Paste" },
-{ key = "Insert", mods = "Control", action = "Copy" }
-]
+[window.padding]
+x = 14
+y = 14
