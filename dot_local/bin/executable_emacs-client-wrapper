@@ -9,6 +9,14 @@ if ! emacsclient -e "(+ 0 0)" &>/dev/null; then
     done
 fi
 
+# If the command is to start server by calling emacs --daemon,
+# pass the command as is.
+for arg in "$@"; do
+    if [[ "$arg" == --daemon || "$arg" == --daemon=* ]]; then
+        exec /usr/bin/emacs "$@"
+    fi
+done
+
 # Open client frame, fallback if something is truly wrong
 # If running in terminal, open emacsclient in the terminal
 # is server is running, and emacs in the terminal otherwise.
