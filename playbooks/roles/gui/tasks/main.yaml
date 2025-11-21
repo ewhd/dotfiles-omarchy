@@ -1,9 +1,0 @@
----
-- name: Install gui utilities
-  ansible.builtin.package:
-    name:
-      - remmina
-      - thunar
-      - portmaster-bin
-
-    state: present

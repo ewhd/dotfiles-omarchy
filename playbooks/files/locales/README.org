@@ -1,0 +1,10 @@
+
+The file =en_US_custom_start-week-on-sat= is a copy of =/usr/share/i18n/locales/en_US=, adding "=first_weekday 7=" to the =LC_TIME= block.
+The purpose is to make the week start on Saturday.
+
+After the file is changed, you must run:
+=sudo localedef -f UTF-8 -i en_US_custom_start-week-on-sat en_US_custom_start-week-on-sat.utf-8=
+
+To use this file for clock/calendar data, run =LC_TIME=en_US_custom_start-week-on-sat.utf8= or add =export LC_TIME=en_US_custom_start-week-on-sat.utf8= to wherever you keep ENV variables.
+
+If you're making changes to this file to effect the waybar clock, restart it with =killall waybar && waybar & > /dev/null=

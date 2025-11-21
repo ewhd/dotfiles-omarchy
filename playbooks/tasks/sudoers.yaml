@@ -1,0 +1,26 @@
+---
+
+- name: Configure sudoers for fn lock script
+  ansible.builtin.template:
+    src: ~/.local/share/chezmoi/playbooks/files/sudoers/toggle-fn-lock-mac.j2
+    dest: /etc/sudoers.d/toggle-fn-lock-mac
+    owner: root
+    group: root
+    mode: '0440'
+    validate: "visudo -cf %s"
+  become: true
+
+- name: Create aur_builder user
+  ansible.builtin.user:
+    name: aur_builder
+  become: true
+
+- name: Allow aur_builder to run pacman without password
+  ansible.builtin.template:
+    src: ~/.local/share/chezmoi/playbooks/files/sudoers/aur_builder-allow-to-sudo-pacman.j2
+    dest: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+    owner: root
+    group: root
+    mode: '0440'
+    validate: "visudo -cf %s"
+  become: true

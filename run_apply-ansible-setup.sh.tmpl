@@ -19,20 +19,20 @@ set -e
         fi
     fi
 
-    PLAYBOOK="{{ .chezmoi.sourceDir }}/ansible/main.yaml"
+    PLAYBOOK="{{ .chezmoi.sourceDir }}/playbooks/main.yaml"
     STAMP="$HOME/.local/state/chezmoi/last-ansible-run.stamp"
 
     should_run=false
     if [ ! -f "$STAMP" ]; then
         should_run=true
-    elif find "{{ .chezmoi.sourceDir }}/ansible" -newer "$STAMP" | grep -q .; then
+    elif find "{{ .chezmoi.sourceDir }}/playbooks" -newer "$STAMP" | grep -q .; then
         should_run=true
     fi
 
     if [ "$should_run" = true ]; then
         echo "Detected changes in playbooks — running Ansible setup..."
-        export ANSIBLE_CONFIG=$HOME/.local/share/chezmoi/ansible/ansible.cfg
-	ansible-galaxy install -r $HOME/.local/share/chezmoi/ansible/requirements.yaml
+        export ANSIBLE_CONFIG=$HOME/.local/share/chezmoi/playbooks/ansible.cfg
+	ansible-galaxy install -r $HOME/.local/share/chezmoi/playbooks/requirements.yaml
         ansible-playbook --ask-become-pass "$PLAYBOOK"
         mkdir -p "$(dirname "$STAMP")"
         touch "$STAMP"

@@ -1,0 +1,7 @@
+---
+- name: Install common utilities
+  become: true
+  ansible.builtin.package:
+    name: "{{ common }}"
+    state: present
+  # changed_when: false

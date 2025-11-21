@@ -1,0 +1,46 @@
+---
+update: true
+swapfile_path: /swapfile
+swapfile_size: 8G
+
+# base_packages:
+  # -
+
+common:
+  - nmap
+  - ranger
+  - htop
+  - btop
+  - plocate
+  - xsel
+  - wget
+  - curl
+  - tmux
+  - ffmpeg
+  - imagemagick
+  - nano
+  - tldr
+  - traceroute
+  - mc # Midnight Commander
+  - sbcl # common lisp interpreter
+
+other_packages:
+  - remmina
+  - thunar
+  - pandoc-cli
+  - emacs-wayland
+  - bitwarden
+  - dropbox
+  # - tailscale # install via omarchy helper script in ~/.local/share/omarchy/bin/omarchy-install-tailscale, which will handle the tui setup and .desktop files
+  
+other_aur_packages:
+  - google-chrome
+  - portmaster-bin
+  - hyprmon-bin
+  - waypaper
+
+# wayland:
+
+
+
+

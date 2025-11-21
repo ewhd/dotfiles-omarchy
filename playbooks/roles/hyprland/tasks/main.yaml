@@ -1,7 +1,0 @@
----
-- name: Install hyprland specific apps
-  ansible.builtin.package:
-    name:
-      - hyprmon
-
-    state: present
