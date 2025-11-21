@@ -1,0 +1,21 @@
+# Extra autostart processes
+# exec-once = uwsm-app -- my-service
+# exec-once = uwsm-app -- emacs-client-wrapper
+# exec-once = uwsm-app -- omarchy-launch-webapp "https://chatgpt.com"
+# exec-once = uwsm-app -- /usr/bin/google-chrome-stable
+
+# machine-specific configuration
+{{- if eq .chezmoi.hostname "t480-omarchy" }}
+{{- end }}
+
+{{- if eq .chezmoi.hostname "macbook-omarchy" }}
+# Start hyprmon and apply profile
+exec-once = hyprmon -profile macbook-air
+{{- end }}
+
+
+# Auto-start apps
+exec-once = hyprctl dispatch exec "[workspace 1 silent] uwsm-app -- emacs-client-wrapper"
+exec-once = hyprctl dispatch exec "[workspace 2 silent] uwsm-app -- omarchy-launch-webapp 'https://chatgpt.com'"
+exec-once = hyprctl dispatch exec "[workspace 3 silent] uwsm-app -- /usr/bin/google-chrome-stable"
+
