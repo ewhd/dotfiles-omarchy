@@ -11,6 +11,7 @@
 {{- if eq .chezmoi.hostname "macbook-omarchy" }}
 # Start hyprmon and apply profile
 exec-once = hyprmon -profile macbook-air
+exec-once = ~/.local/bin/toggle-fn-lock-mac
 {{- end }}
 
 

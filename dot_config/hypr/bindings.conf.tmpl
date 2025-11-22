@@ -83,8 +83,14 @@ bind = SUPER ALT, F, fullscreen
 
 # bindd = XF86Fn, ESCAP, Fn Lock, exec, ~/.local/bin/toggle-fn-lock-mac
 
+# System specific config:
 {{ if eq .chezmoi.hostname "macbook-omarchy" }}
+
+# Because a mac keyboard has no traditional delete key
 bind = super, backspace, sendshortcut, , delete,
+
+# Toggle function lock
+bind = SUPER SHIFT, ESCAPE, exec, /usr/bin/sudo /home/ewhd/.local/bin/toggle-fn-lock-mac
 # bind = , 229, exec, /home/ewhd/.local/bin/kbd-backlight-down >> /tmp/fn.log 2>&
 # bind = , 230, exec, /home/ewhd/.local/bin/kbd-backlight-up >> /tmp/fn.log 2>&
 bind = SUPER, "[", exec, /home/ewhd/.local/bin/kbd-backlight-down >> /tmp/fn.log 2>&
