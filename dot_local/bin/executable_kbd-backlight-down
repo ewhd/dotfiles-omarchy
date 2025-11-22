@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+brightnessctl -d "smc::kbd_backlight" set 10%-

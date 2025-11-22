@@ -85,4 +85,11 @@ bind = SUPER ALT, F, fullscreen
 
 {{ if eq .chezmoi.hostname "macbook-omarchy" }}
 bind = super, backspace, sendshortcut, , delete,
+# bind = , 229, exec, /home/ewhd/.local/bin/kbd-backlight-down >> /tmp/fn.log 2>&
+# bind = , 230, exec, /home/ewhd/.local/bin/kbd-backlight-up >> /tmp/fn.log 2>&
+bind = SUPER, "[", exec, /home/ewhd/.local/bin/kbd-backlight-down >> /tmp/fn.log 2>&
+bind = SUPER, "]", exec, /home/ewhd/.local/bin/kbd-backlight-up >> /tmp/fn.log 2>&
+# The scripts for these work, but not these keybinds
+
+
 {{ end }}
