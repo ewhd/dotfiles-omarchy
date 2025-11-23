@@ -1,1 +1,44 @@
+# Ignore specific directories
 ansible/
+playbooks/
+
+# Ignore a specific file named README.md in the root of the source state
+README.md
+
+# Ignore all files ending with .bak in any directory
+**/*.bak
+
+# Ignore the entire 'cache' directory and its contents
+# cache/
+
+# Ignore the 'node_modules' directory and its contents, commonly found in development environments
+# node_modules/
+
+# Conditionally ignore a file based on hostname
+# This example ignores '.work' unless the hostname is "work-laptop"
+# {{- if ne .chezmoi.hostname "work-laptop" }}
+# .work
+# {{- end }}
+
+# Ignore all files starting with 'temp' in the 'logs' directory
+# logs/temp*
+
+# Ignore all files in 'dir/' except for 'dir/foo.txt'
+# dir/*
+# !dir/foo.txt
+
+
+# *.txt   # ignore *.txt in the target directory
+# */*.txt # ignore *.txt in subdirectories of the target directory
+        # but not in subdirectories of subdirectories;
+        # so a/b/c.txt would *not* be ignored
+
+# */*.org# # Ignore org-mode backup files that end with `#`
+
+# backups/   # ignore the backups folder, but not its contents
+# backups/** # ignore the contents of backups folder but not the folder itself
+
+# {{- if eq .chezmoi.os "windows" }}
+# Documents/*
+# !Documents/*PowerShell/ # ignore a folder, except for Windows PowerShell profiles
+# {{- end }}
