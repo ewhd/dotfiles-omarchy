@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=PulseAudio
+GenericName=Volume
+Comment=PipeWire volume and output control
+Exec=/usr/bin/pavucontrol
+Icon=/home/ewhd/.local/share/icons/Pulseaudio.png
+Type=Application
+Terminal=false
+Categories=Utility;Audio
+StartupNotify=true
+StartupWMClass=PulseAudio
