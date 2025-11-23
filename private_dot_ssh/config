@@ -1,0 +1,33 @@
+# Default settings for all hosts
+Host *
+    ForwardAgent yes
+    # ForwardX11 no
+    User ewhd
+    Port 22
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+# Specific host configuration for 'macbook-omarchy'
+Host macbook-omarchy
+    HostName 10.0.99.112
+    User ewhd
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519_t480-omarchy
+
+# Specific host configuration for 't480-omarchy'
+Host t480-omarchy
+    HostName 10.0.99.233
+    User ewhd
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519_macbook-omarchy
+
+# # Configuration for GitHub
+# Host github.com
+#     User git
+#     IdentityFile ~/.ssh/github_key
+
+# # Configuration for a server accessed via a proxy jump
+# Host jump_server
+#     HostName 10.0.0.50
+#     User proxyuser
+#     ProxyCommand ssh -W %h:%p jump_host
