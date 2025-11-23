@@ -1,0 +1,46 @@
+[general]
+destination = "$HOME/.config/hyprdynamicmonitors/monitors.conf"
+# debounce_time_ms = 1500
+# pre_apply_exec = "notify-send 'Switching profile...'"
+# post_apply_exec = "notify-send 'Profile applied'"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_AC"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_AC"
+
+# [profiles.laptop_only]
+# config_file = "hyprconfigs/macbook_air.json"
+# config_file_type = "static"
+
+# [[profiles.laptop_only.conditions.required_monitors]]
+# name = "eDP-1"  # Replace with your display name from hyprctl monitors
+
+[profiles.t480-laptop]
+config_file = "/home/ewhd/.config/hyprdynamicmonitors/hyprconfigs/t480-laptop.go.tmpl"
+config_file_type = "template"
+[profiles.t480-laptop.conditions]
+
+[[profiles.t480-laptop.conditions.required_monitors]]
+description = "LG Display 0x0521"
+  monitor_tag = "monitor0"
+
+  
+[profiles.t480-desktop]
+config_file = "/home/ewhd/.config/hyprdynamicmonitors/hyprconfigs/t480-desktop.go.tmpl"
+config_file_type = "template"
+[profiles.t480-desktop.conditions]
+
+[[profiles.t480-desktop.conditions.required_monitors]]
+description = "LG Display 0x0521"
+monitor_tag = "monitor0"
+
+[[profiles.t480-desktop.conditions.required_monitors]]
+description = "ViewSonic Corporation VX2768-2KPC W5H222940494"
+monitor_tag = "monitor1"
+
+
+

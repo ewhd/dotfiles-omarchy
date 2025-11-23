@@ -39,6 +39,7 @@ other_aur_packages:
   - google-chrome
   - portmaster-bin
   - hyprmon-bin
+  - hyprdynamicmonitors-bin
   - waypaper
 
 # wayland:
