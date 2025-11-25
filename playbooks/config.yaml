@@ -24,6 +24,7 @@ common:
   - mc # Midnight Commander
   - sbcl # common lisp interpreter
   - fcitx5-configtool # config fcitx5 to disable Ctrl+Alt+P behavior
+  - ttf-iosevka-nerd
 
 other_packages:
   - remmina
