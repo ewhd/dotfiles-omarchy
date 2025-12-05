@@ -40,6 +40,7 @@ other_packages:
   - bitwarden
   - dropbox
   # - tailscale # install via omarchy helper script in ~/.local/share/omarchy/bin/omarchy-install-tailscale, which will handle the tui setup and .desktop files
+  - pavucontrol
   
 other_aur_packages:
   - google-chrome
