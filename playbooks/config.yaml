@@ -25,8 +25,8 @@ common:
   - sbcl # common lisp interpreter
   - fcitx5-configtool # config fcitx5 to disable Ctrl+Alt+P behavior
   - ttf-iosevka-nerd
-  - ttc-iosevka-aile
-  - ttc-iosevka-etoile
+  # - ttc-iosevka-aile
+  # - ttc-iosevka-etoile
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting
