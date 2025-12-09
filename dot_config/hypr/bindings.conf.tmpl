@@ -97,5 +97,12 @@ bind = SUPER, "[", exec, /home/ewhd/.local/bin/kbd-backlight-down >> /tmp/fn.log
 bind = SUPER, "]", exec, /home/ewhd/.local/bin/kbd-backlight-up >> /tmp/fn.log 2>&
 # The scripts for these work, but not these keybinds
 
+# Swap back and forth between 2 workspaces
+# This swaps default omarchy keybindings
+unbind = SUPER, TAB
+unbind = SUPER CTRL, TAB
+bindd = SUPER, TAB, Former workspace, workspace, previous
+bindd = SUPER CTRL, TAB, Next workspace, workspace, e+1
+
 
 {{ end }}
