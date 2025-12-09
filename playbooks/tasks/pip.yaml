@@ -4,4 +4,12 @@
     name:
       - git-remote-dropbox
       - ansible-lint
+      - hy
+      - ipython
+      - jedhy
+      - mccabe
+      - pycodestyle
+      - pyflakes
+      - python-lsp-server
+      - vosk
     state: present
