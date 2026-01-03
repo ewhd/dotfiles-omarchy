@@ -3,7 +3,7 @@ $terminal = uwsm-app -- $TERMINAL
 $browser = omarchy-launch-browser
 
 bindd = SUPER SHIFT, RETURN, Terminal, exec, $terminal --working-directory="$(omarchy-cmd-terminal-cwd)"
-bindd = SUPER SHIFT, F, File manager, exec, uwsm-app -- nautilus --new-window
+# bindd = SUPER SHIFT, F, File manager, exec, uwsm-app -- nautilus --new-window
 bindd = SUPER SHIFT, B, Browser, exec, $browser
 bindd = SUPER SHIFT ALT, B, Browser (private), exec, $browser --private
 bindd = SUPER SHIFT, M, Music, exec, omarchy-launch-or-focus spotify
@@ -77,8 +77,8 @@ bind = SUPER SHIFT, B, swapwindow, l
 bind = SUPER SHIFT, P, swapwindow, u
 bind = SUPER SHIFT, N, swapwindow, d
 
-bind = SUPER SHIFT, F, fullscreen, 1
-bind = SUPER ALT, F, fullscreen
+# bind = SUPER SHIFT, F, fullscreen, 1
+# bind = SUPER ALT, F, fullscreen
 
 
 # bindd = XF86Fn, ESCAP, Fn Lock, exec, ~/.local/bin/toggle-fn-lock-mac
