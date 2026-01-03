@@ -6,11 +6,15 @@
     dest: /usr/share/i18n/locales/en_US_custom_start-week-on-sat
     mode: "0644"
 
+- name: Check if custom locale is already compiled
+  ansible.builtin.command: locale -a
+  register: locale_list
+  changed_when: false
+
 - name: Compile custom locale
   become: true
   ansible.builtin.command: >
     localedef -i en_US_custom_start-week-on-sat
               -f UTF-8
               en_US_custom_start-week-on-sat.utf8
-  args:
-    creates: /usr/lib/locale/en_US_custom_start-week-on-sat.utf8
+  when: "'en_US_custom_start-week-on-sat.utf8' not in locale_list.stdout"
